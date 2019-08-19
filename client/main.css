@@ -3,6 +3,7 @@
   --nav-color:#2d3c3c;
   --body-bg-color: teal;
   --plain-color: #fff;
+  --scrollbar-color:#1c9c9c;
   --input-text-color: #988e8e;
   --default-color:#000;
   --fallback-font: 'Geo', sans-serif;
@@ -14,6 +15,7 @@
   padding: 0;
   margin: 0;
 }
+
 body {
   font-family: var(--fallback-font);
   font-size: 17px;
@@ -22,10 +24,12 @@ body {
 }
 .navbar{
   background: var(--nav-color);
-  padding: 5px;
+  padding: 15px;
   margin: 0;
   border-radius: 0%;
-  height: 10vh;
+  height: auto;
+  display: flex;
+  align-items: center;
 }
 .navbar-brand{
   margin: 15px 0 0 40px;
@@ -40,6 +44,7 @@ body {
   align-items: center;
   float: right;
   width: 25%;
+  margin-left: auto;
 }
 button{
   color:var(--plain-color);
@@ -65,6 +70,47 @@ button#update{
   float: right;
   /* display: none; */
 }
+
+.emp::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(6, 238, 130, 0.1);
+  box-shadow: inset 0 0 6px rgba(6, 238, 130, 0.1);
+	background-color:var(--body-bg-color);
+	border-radius: 10px;
+}
+
+.emp::-webkit-scrollbar
+{
+	width: 10px;
+}
+
+/* .emp::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+    40% 0%,
+    75% 84%,
+    from(rgb(15, 84, 88)),
+    to(rgb(10, 173, 165)),
+    color-stop(.6,teal))
+} */
+
+.emp::-webkit-scrollbar-thumb
+{
+	background-color:var(--body-bg-color);
+	border-radius: 10px;
+	background-image: -webkit-linear-gradient(0deg,
+  var(--scrollbar-color) 25%,
+  transparent 25%,
+  transparent 50%,
+  var(--scrollbar-color) 50%,
+  var(--scrollbar-color) 75%,
+  transparent 75%,
+  transparent)
+}
+
+
+
 /* The Modal (background) */
 .modal {
   display: none; 
@@ -176,7 +222,7 @@ main{
 }
 .emp{
   max-height: 90vh;
-  overflow: scroll;
+  overflow: auto;
   padding: 20px;
 }
 .emp .container{
