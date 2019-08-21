@@ -1,77 +1,80 @@
 <template name="employees">
-    <div class="col-md-7 emp" >
+    <div class="col-md-7 emp">
         <div class="container">
             <div class="row">
                 {{#each employeesDetails}}
-                    <div class="thumbnail" id="{{_id}}">
-                        <div class="card"> 
-                            <img src="{{imagelink}}" alt="" class="">
+                <div class="thumbnail" id="{{_id}}">
+                    <div class="card">
+                        <img src="{{imagelink}}" alt="" class="">
+                    </div>
+                    <div class="empInfo">
+                        {{# if currentUser}}
+                        <span class="empedit" id="empdelete" title="Delete this Employee"><i class="fa fa-trash-o"
+                                aria-hidden="true"></i></span>
+                        <span class="empedit" id="{{_id}}" title="Edit this Employee"><i class="fa fa-pencil"
+                                aria-hidden="true" onclick="$('#id04{{_id}}').show(200)"></i></span>
+                        {{/ if}}
+                        <div class="empdata">
+                            <label for="empname">Name:</label>
+                            <input type="text" name="empname" value="{{name}}" readonly>
                         </div>
-                        <div class="empInfo">
-                            {{# if currentUser}}
-                            <span class="empedit" id="empdelete" title="Delete this Employee"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                            <span class="empedit" id="{{_id}}" title="Edit this Employee"><i class="fa fa-pencil" aria-hidden="true" onclick="$('#id04{{_id}}').show(200)"></i></span>
-                            {{/ if}}
-                            <div class="empdata">
-                                <label for="empname">Name:</label>
-                                <input type="text" name="empname" value="{{name}}" readonly>
-                            </div>
-                            <div class="empdata">
-                                <label for="empage">Age:</label>
-                                <input type="text" name="empage" value="{{age}}" readonly>
-                            </div>
-                            <div class="empdata">
-                                <label for="empgender">Gender:</label>
-                                <input type="text" name="empgender" value="{{gender}}" readonly>
-                            </div>
-                            <div class="empdata">
-                                <label for="empnationality">Nationality:</label>
-                                <input type="text" name="empnationality" value="{{nationality}}" readonly>
-                            </div>
-                            <div class="empdata">
-                                <label for="empdepartment">Department:</label>
-                                <input type="text" name="empdepartment" value="{{department}}" readonly>
-                            </div>
+                        <div class="empdata">
+                            <label for="empage">Age:</label>
+                            <input type="text" name="empage" value="{{age}}" readonly>
+                        </div>
+                        <div class="empdata">
+                            <label for="empgender">Gender:</label>
+                            <input type="text" name="empgender" value="{{gender}}" readonly>
+                        </div>
+                        <div class="empdata">
+                            <label for="empnationality">Nationality:</label>
+                            <input type="text" name="empnationality" value="{{nationality}}" readonly>
+                        </div>
+                        <div class="empdata">
+                            <label for="empdepartment">Department:</label>
+                            <input type="text" name="empdepartment" value="{{department}}" readonly>
                         </div>
                     </div>
-                    <div id="id04{{_id}}" class="modal">
-                            <form class="modal-content animate editform" id='form{{_id}}'>
-                                <span onclick="$('#id04{{_id}}').hide(1000);" class="close" title="Close Modal">&times;</span>
-                                <div class="con">
-                                    <label><b>Name</b></label>
-                                    <input type="text" value="{{name}}" name="empname" required>
-                                    <label><b>Age</b></label>
-                                    <input type="number" value="{{age}}" name="empage" required>
-                                    <label><b>Gender</b></label>
-                                    <select name="empgender" required>
-                                        <option>{{gender}}</option>
-                                        <option> Male</option>
-                                        <option> Female</option>
-                                    </select>
-                                    <label><b>Nationality</b></label>
-                                    <input type="text" value="{{nationality}}" name="empnationality" required>
-                                    <label><b>Department</b></label>
-                                    <select name="empdepartment" required>
-                                        <option>{{department}}</option>
-                                        <option> Sales</option>
-                                        <option> Marketing</option>
-                                        <option> Administration</option>
-                                        <option> IT </option>
-                                        <option> Finance</option>
-                                        <option> Research and Development</option>
-                                    </select>
-                                    <label><b>Image link</b></label>
-                                    <input type="text" value="{{imagelink}}" name="empphoto">
-                                    <div class="con">
-                                    <button type="submit" class="btn-success">Save</button>
-                                    <button type="button" onclick="$('#id04{{_id}}').hide(1000);" class="cancelbtn btn-danger">Cancel</button>
-                                    </div>
-                                </div>
-                            </form>
+                </div>
+                <div id="id04{{_id}}" class="modal">
+                    <form class="modal-content animate editform" id='form{{_id}}'>
+                        <span onclick="$('#id04{{_id}}').hide(1000);" class="close" title="Close Modal">&times;</span>
+                        <div class="con">
+                            <label><b>Name</b></label>
+                            <input type="text" value="{{name}}" name="empname" required>
+                            <label><b>Age</b></label>
+                            <input type="number" value="{{age}}" name="empage" required>
+                            <label><b>Gender</b></label>
+                            <select name="empgender" required>
+                                <option>{{gender}}</option>
+                                <option> Male</option>
+                                <option> Female</option>
+                            </select>
+                            <label><b>Nationality</b></label>
+                            <input type="text" value="{{nationality}}" name="empnationality" required>
+                            <label><b>Department</b></label>
+                            <select name="empdepartment" required>
+                                <option>{{department}}</option>
+                                <option> Sales</option>
+                                <option> Marketing</option>
+                                <option> Administration</option>
+                                <option> IT </option>
+                                <option> Finance</option>
+                                <option> Research and Development</option>
+                            </select>
+                            <label><b>Image link</b></label>
+                            <input type="text" value="{{imagelink}}" name="empphoto">
+                            <div class="con">
+                                <button type="submit" class="btn-success">Save</button>
+                                <button type="button" onclick="$('#id04{{_id}}').hide(1000);"
+                                    class="cancelbtn btn-danger">Cancel</button>
+                            </div>
                         </div>
+                    </form>
+                </div>
                 {{/each}}
             </div>
         </div>
     </div>
-    
+
 </template>

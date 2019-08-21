@@ -5,16 +5,19 @@
         </div>
         <div class="Buttonwrap">
             {{# if currentUser}}
-            <button class="Button-style btn-success" onclick="document.getElementById('id03').style.display='block'">Add new</button>
+            <button class="Button-style btn-success" onclick="document.getElementById('id03').style.display='block'">Add
+                new</button>
             <button class="Button-style btn-danger" id="logout">Log out</button>
             {{else}}
-            <button class="Button-style btn-success" onclick="document.getElementById('id01').style.display='block'">Login</button>
-            <button class="Button-style sign" onclick="document.getElementById('id02').style.display='block'">Sign up</button>
+            <button class="Button-style btn-success"
+                onclick="document.getElementById('id01').style.display='block'">Login</button>
+            <button class="Button-style sign" onclick="document.getElementById('id02').style.display='block'">Sign
+                up</button>
             {{/ if}}
         </div>
         <!-- The Login Modal -->
         <div id="id01" class="modal">
-            <form class="modal-content animate" id="loginform"  method="POST">
+            <form class="modal-content animate" id="loginform" method="POST">
                 <span onclick="$('#id01').hide(200);" class="close" title="Close Modal">&times;</span>
                 <div class="con">
                     <label><b>Username</b></label>
@@ -22,36 +25,38 @@
                     <label><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="pass" required>
                     <div class="con">
-                    <button type="submit" class="btn-success">Login</button>
-                    <button type="button" onclick="$('#id01').fadeOut(500);" class="cancelbtn btn-danger">Cancel</button>
-                        
+                        <button type="submit" class="btn-success">Login</button>
+                        <button type="button" onclick="$('#id01').fadeOut(500);"
+                            class="cancelbtn btn-danger">Cancel</button>
+
                     </div>
                 </div>
             </form>
         </div>
         <!-- The Sign up Modal -->
         <div id="id02" class="modal">
-                <form class="modal-content animate" id="signupForm" method="POST">
-                    <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <form class="modal-content animate" id="signupForm" method="POST">
+                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <div class="con">
+                    <label><b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="username" required>
+                    <label><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label><b>Confirm Password</b></label>
+                    <input type="password" placeholder="Enter Password Again" name="psw2" required>
                     <div class="con">
-                        <label><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="username" required>
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-                        <label><b>Confirm Password</b></label>
-                        <input type="password" placeholder="Enter Password Again" name="psw2" required>
-                        <div class="con">
                         <button type="submit" class="btn-success">Sign up</button>
                         <button onclick="document.getElementById('id02').style.display='none'"
                             class="cancelbtn btn-danger">Cancel</button>
-                        </div>
                     </div>
-                </form>
+                </div>
+            </form>
         </div>
 
         <!-- The Add employee Modal -->
         <div id="id03" class="modal">
-                <form class="modal-content animate" id="AddEmployee">
+            <form class="modal-content animate" id="AddEmployee">
                 <span onclick="$('#id03').hide(1000);" class="close" title="Close Modal">&times;</span>
                 <div class="con">
                     <label><b>Name</b></label>
@@ -77,11 +82,12 @@
                     <label><b>Image link</b></label>
                     <input type="text" placeholder="Paste Employee image link" name="empphoto">
                     <div class="con">
-                    <button type="submit" class="btn-success">Add</button>
-                    <button type="button" onclick="$('#id03').hide(1000);" class="cancelbtn btn-danger">Cancel</button>
+                        <button type="submit" class="btn-success">Add</button>
+                        <button type="button" onclick="$('#id03').hide(1000);"
+                            class="cancelbtn btn-danger">Cancel</button>
                     </div>
                 </div>
-                </form>
+            </form>
         </div>
     </nav>
 
